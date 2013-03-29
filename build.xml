@@ -1,0 +1,47 @@
+<project name="jdbc_client" default="compress">
+          <property environment="env"/>
+          <echo message="oracle_home : ${env.ORACLE_HOME}"/>
+	
+	<path id="project.class.path">
+		    <pathelement path="dist/IncrIndxLoader.jar"/>
+		    <pathelement path="lib/ojdbc14.jar"/>
+		    <pathelement path="lib/log4j-1.2.16.jar"/>
+		    <pathelement path="lib/snakeyaml-1.10.jar"/>
+		    <pathelement path="lib/"/>
+		    <pathelement path="config/"/>
+	</path>
+	
+	<target name="init">
+		<mkdir dir="build/classes" />
+		<mkdir dir="dist" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="src" destdir="build/classes" includeantruntime="false">
+		     <classpath refid="project.class.path"/>
+		</javac>
+	</target>
+	
+	<target name="compress" depends="compile">
+	        <jar destfile="dist/IncrIndxLoader.jar" basedir="build/classes" manifest="config/manifest"/>
+	</target>
+	
+	<target name="execute" depends="compile">
+		<java classname="ads.solr.SILG">
+			<classpath refid="project.class.path"/>
+			<sysproperty key="INPUT_PATH" value="data/input/"/>
+			<sysproperty key="OUTPUT_PATH" value="data/output/"/>						
+			<sysproperty key="SOURCE_FILE_CSV" value="../output/load/fio_filtered_logs.log"/>			
+			<sysproperty key="LOAD_FILE_CSV" value="load/ungrouped_10gigsfio_diskonlyorgs.load"/>		
+			<sysproperty key="LOAD_FILE_GROUPED_CSV" value="load/grouped_10gigsfio_diskonlyorgs.load"/>
+			<sysproperty key="THR" value="5"/>
+			<sysproperty key="GET_TABLE_SIZE" value="false"/>
+		</java>
+	</target>
+	
+	<target name="clean">
+		<delete dir="build" />
+		<delete dir="dist" />
+	</target>
+
+</project>

@@ -1,0 +1,8 @@
+DRIVERNAME : "oracle.jdbc.driver.OracleDriver"
+SERVERNAME : "ist4-db1-1-sfm-vip.data.sfdc.net"
+PORT : "1521"
+SID : "ist4a180na1-1"
+USERNAME : ""
+PWD : ""
+
+#URL:"jdbc:oracle:thin:@" + SERVERNAME + ":" + PORT + ":" + SID
