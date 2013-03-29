@@ -1,0 +1,7 @@
+--- Version 0.1 ---
+Features :
+   - generates incremental indexing input for rrc servlet, for load generation. We use Ilines generated from splunk as input.
+   - config as yaml
+   - loggin support
+   - input : dbschema.map tablenames.map Ilines.txt
+
