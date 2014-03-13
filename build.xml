@@ -1,7 +1,5 @@
 <project name="jdbc_client" default="compress">
           <property environment="env"/>
-          <echo message="oracle_home : ${env.ORACLE_HOME}"/>
-	
 	<path id="project.class.path">
 		    <pathelement path="dist/IncrIndxLoader.jar"/>
 		    <pathelement path="lib/ojdbc14.jar"/>
