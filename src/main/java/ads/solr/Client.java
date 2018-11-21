@@ -25,17 +25,13 @@ import java.util.Random;
 public class Client {
 
 	private static String driverName = "oracle.jdbc.driver.OracleDriver";
-	private static String serverName = "ist5-db1-1-sfm-vip.data.sfdc.net";
+	private static String serverName = "YOURSERVERNAME";
 	private static String portNumber = "1521";
-	private static String sid = "ist5a176na1-1";
-
-	//     private static String serverName = "ist6-db1-1-sfm-vip.data.sfdc.net";
-	//     private static String portNumber = "1521";
-	//     private static String sid = "ist6a176na1-1";
+	private static String sid = "SID";
 
 	private static String url = "jdbc:oracle:thin:@" + serverName + ":" + portNumber + ":" + sid;
-	private static String username = "useradmin";
-	private static String password = "caetan0";
+	private static String username = "";
+	private static String password = "";
 	private static Connection connection = null;
 	private static Statement stmnt = null;
 
